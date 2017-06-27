@@ -9,12 +9,9 @@ public class MaximizeProfit {
         int minBuy = prices[0];
         int maxProfit = prices[1] - minBuy;
         for (int i = 1; i < prices.length; i++){
-            if (prices[i] - minBuy > maxProfit) {
-                maxProfit = prices[i] - minBuy;
-            }
-            if (prices[i] < minBuy) {
-                minBuy = prices[i];
-            }
+            int currentPrice = prices[i];
+            maxProfit = Math.max(currentPrice - minBuy, maxProfit);
+            minBuy = Math.min(currentPrice, minBuy);
         }
         return maxProfit;
     }
